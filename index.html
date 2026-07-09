@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -3318,6 +3316,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
   .an-road-score-card.an-road-score-wait{opacity:0;transform:translateY(16px) scale(.97);}
   .an-road-seq-snap .an-road-route-city,.an-road-seq-snap .an-road-arc svg path,.an-road-seq-snap .an-road-leg-stat,.an-road-seq-snap .an-road-miles,.an-road-score-card.an-road-seq-snap{transition:none !important;}
   .an-road-hero-cta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin:0 clamp(20px,3vw,42px) clamp(16px,2vw,24px);}
+  button.an-road-btn{appearance:none;-webkit-appearance:none;cursor:pointer;font-family:inherit;}
   @media(max-width:900px){.an-road-hero-deck{flex-direction:column}.an-road-hero-deck .an-road-score-card{flex:0 0 auto}}
   /* Mid-desktop range: the strip shares its row with the score card, so
      scale type and gaps down to guarantee a fit regardless of font. */
@@ -3430,28 +3429,28 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <p class="an-road-sub">We scored 2,265 upcoming three-ballpark itineraries across the 2026 MLB schedule to find the strongest trips for fans who want multiple games, manageable driving and a clean route.</p>
 </div>
 </div>
-<div class="an-road-hero-cta">
-<a class="an-road-btn" data-trip-mode-link="weekend" href="#weekendTripsPanel">View Weekend Trips</a>
-<a class="an-road-btn secondary" data-trip-mode-link="flexible" href="#flexibleTripsPanel">Explore All Trips</a>
+<div aria-label="Choose which top trip the animation shows" class="an-road-hero-cta" role="group">
+<button aria-pressed="true" class="an-road-btn" id="anHeroTripOverall" type="button">Best Overall Trip</button>
+<button aria-pressed="false" class="an-road-btn secondary" id="anHeroTripWeekend" type="button">Best Weekend Trip</button>
 </div>
 <div class="an-road-hero-deck">
 <aside aria-label="Top route summary" class="an-road-score-card">
-<span class="an-road-score-label">No. 1 Overall Route</span>
+<span class="an-road-score-label" id="anHeroScoreLabel">No. 1 Overall Route</span>
 <strong><span id="anHeroScoreNum">72.2</span><em class="an-road-score-outof">/100</em></strong>
 <span class="an-road-score-name">Road Trip Score</span>
-<small>Milwaukee Brewers → Chicago Cubs → Chicago White Sox</small>
+<small id="anHeroRouteLine">Milwaukee Brewers → Chicago Cubs → Chicago White Sox</small>
 <small class="an-road-score-explain">The score rates every trip out of 100: the average quality of its three ballparks, adjusted for how easy the drives between them are. Higher is better.</small>
 </aside>
 <div aria-label="Top road-trip route animation" class="an-road-route-strip">
-<div class="an-road-route-city is-arrived"><small>Stop 1</small><span class="an-road-city-line"><svg aria-hidden="true" class="an-road-pennant pn-1" viewBox="0 0 26 28"><line class="pennant-pole" x1="4" x2="4" y1="2" y2="26"></line><path class="pennant-flag flag-1" d="M6 3 L25 9 L6 15 Z"></path></svg>Milwaukee</span><span class="an-road-route-date">Mon, Jul 20</span></div>
+<div class="an-road-route-city is-arrived"><small>Stop 1</small><span class="an-road-city-line"><svg aria-hidden="true" class="an-road-pennant pn-1" viewBox="0 0 26 28"><line class="pennant-pole" x1="4" x2="4" y1="2" y2="26"></line><path class="pennant-flag flag-1" d="M6 3 L25 9 L6 15 Z"></path></svg><span class="an-road-city-name">Milwaukee</span></span><span class="an-road-route-date">Mon, Jul 20</span></div>
 <div aria-hidden="true" class="an-road-arc">
 <svg preserveaspectratio="none" viewbox="0 0 420 74" xmlns:xlink="http://www.w3.org/1999/xlink"><path class="an-road-road-casing" d="M8 52 C130 2 286 2 412 52" vector-effect="non-scaling-stroke"></path><path class="an-road-road-asphalt" d="M8 52 C130 2 286 2 412 52" vector-effect="non-scaling-stroke"></path><path class="an-road-arc-glow" d="M8 52 C130 2 286 2 412 52" id="anRoadArcPath1" vector-effect="non-scaling-stroke"></path></svg><span class="an-road-leg-stat">76 mi · 1h 23m</span>
 </div>
-<div class="an-road-route-city"><small>Stop 2</small><span class="an-road-city-line"><svg aria-hidden="true" class="an-road-pennant pn-2" viewBox="0 0 26 28"><line class="pennant-pole" x1="4" x2="4" y1="2" y2="26"></line><path class="pennant-flag flag-2" d="M6 3 L25 9 L6 15 Z"></path></svg>Chicago Cubs</span><span class="an-road-route-date">Tue, Jul 21</span></div>
+<div class="an-road-route-city"><small>Stop 2</small><span class="an-road-city-line"><svg aria-hidden="true" class="an-road-pennant pn-2" viewBox="0 0 26 28"><line class="pennant-pole" x1="4" x2="4" y1="2" y2="26"></line><path class="pennant-flag flag-2" d="M6 3 L25 9 L6 15 Z"></path></svg><span class="an-road-city-name">Chicago Cubs</span></span><span class="an-road-route-date">Tue, Jul 21</span></div>
 <div aria-hidden="true" class="an-road-arc short">
 <svg preserveaspectratio="none" viewbox="0 0 220 74" xmlns:xlink="http://www.w3.org/1999/xlink"><path class="an-road-road-casing" d="M8 52 C70 18 150 18 212 52" vector-effect="non-scaling-stroke"></path><path class="an-road-road-asphalt" d="M8 52 C70 18 150 18 212 52" vector-effect="non-scaling-stroke"></path><path class="an-road-arc-glow" d="M8 52 C70 18 150 18 212 52" id="anRoadArcPath2" vector-effect="non-scaling-stroke"></path></svg><span class="an-road-leg-stat">8 mi · 9m</span>
 </div>
-<div class="an-road-route-city"><small>Stop 3</small><span class="an-road-city-line"><svg aria-hidden="true" class="an-road-pennant pn-3" viewBox="0 0 26 28"><line class="pennant-pole" x1="4" x2="4" y1="2" y2="26"></line><path class="pennant-flag flag-3" d="M6 3 L25 9 L6 15 Z"></path></svg>White Sox</span><span class="an-road-route-date">Fri, Jul 24</span></div>
+<div class="an-road-route-city"><small>Stop 3</small><span class="an-road-city-line"><svg aria-hidden="true" class="an-road-pennant pn-3" viewBox="0 0 26 28"><line class="pennant-pole" x1="4" x2="4" y1="2" y2="26"></line><path class="pennant-flag flag-3" d="M6 3 L25 9 L6 15 Z"></path></svg><span class="an-road-city-name">White Sox</span></span><span class="an-road-route-date">Fri, Jul 24</span></div>
 <div class="an-road-miles"><span>84</span><small>Total Miles</small></div>
 </div>
 </div>
@@ -3493,7 +3492,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <a class="page-jump-link is-current" data-section-link="key-findings" href="#key-findings">Key Findings</a>
 <a class="page-jump-link" data-section-link="road-trip-planner" href="#road-trip-planner">Road-Trip Tool</a>
 <a class="page-jump-link" data-trip-mode-link="weekend" href="#weekendTripsPanel">Weekend Trips</a>
-<a class="page-jump-link" data-trip-mode-link="flexible" href="#flexibleTripsPanel">Flexible Trips</a>
+<a class="page-jump-link" data-trip-mode-link="flexible" href="#flexibleTripsPanel">All Trips</a>
 <a class="page-jump-link" data-trip-mode-link="fan" href="#fanTripsPanel">Your Team</a>
 <a class="page-jump-link" data-section-link="methodology" href="#methodology">Methodology</a>
 </div>
@@ -3505,10 +3504,10 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <p>The strongest routes balance venue quality with practical travel. The top results are not just the strongest stops on paper: they are the trips fans can actually fit into a long weekend or short run of annual leave.</p>
 </header>
 <div class="an-road-findings-grid">
-<article class="an-road-finding-card an-reveal"><span class="an-road-finding-rank">1</span><div><span class="finding-tag">Weekend No. 1</span><h3>Cleveland → Detroit → Toronto Owns the Weekend</h3><p>The best Friday-to-Sunday run goes border-hopping on <strong>Aug. 14–16, 2026</strong>, packing three games and a US–Canada crossing into one long weekend.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>297 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>5h 25m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:65.6"><b>65.6<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
-<article class="an-road-finding-card an-reveal"><span class="an-road-finding-rank">2</span><div><span class="finding-tag">Weekend No. 2</span><h3>Mets → Phillies → Nationals Is the East Coast Weekend Pick</h3><p>Three NL East parks in three days on <strong>Jul 24–26, 2026</strong>, with less than four hours of total driving.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>213 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>3h 53m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:63.0"><b>63.0<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
-<article class="an-road-finding-card is-featured an-reveal"><span class="an-road-finding-rank">3</span><div><span class="finding-tag">Flexible No. 1</span><h3>Milwaukee → Cubs → White Sox Is the Best Trip in the Study</h3><p>The overall No. 1 packs three ballparks into five days from <strong>Jul 20, 2026</strong>, with barely any road between them.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>84 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>1h 32m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:72.2"><b>72.2<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
-<article class="an-road-finding-card an-reveal"><span class="an-road-finding-rank">4</span><div><span class="finding-tag">Flexible No. 2</span><h3>Phillies → Orioles → Nationals Is Almost Tied for First</h3><p>The Beltway alternative departs <strong>Jul 21, 2026</strong> and lands just 0.1 back of the top score.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>124 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>2h 15m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:72.1"><b>72.1<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
+<article class="an-road-finding-card is-featured an-reveal"><span class="an-road-finding-rank">1</span><div><span class="finding-tag">Overall No. 1</span><h3>Milwaukee → Cubs → White Sox Is the Best Trip in the Study</h3><p>The overall No. 1 packs three ballparks into five days from <strong>Jul 20, 2026</strong>, with barely any road between them.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>84 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>1h 32m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:72.2"><b>72.2<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
+<article class="an-road-finding-card an-reveal"><span class="an-road-finding-rank">2</span><div><span class="finding-tag">Overall No. 2</span><h3>Phillies → Orioles → Nationals Is Almost Tied for First</h3><p>The Beltway alternative departs <strong>Jul 21, 2026</strong> and lands just 0.1 back of the top score.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>124 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>2h 15m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:72.1"><b>72.1<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
+<article class="an-road-finding-card an-reveal"><span class="an-road-finding-rank">3</span><div><span class="finding-tag">Weekend No. 1</span><h3>Cleveland → Detroit → Toronto Owns the Weekend</h3><p>The best Friday-to-Sunday run goes border-hopping on <strong>Aug. 14–16, 2026</strong>, packing three games and a US–Canada crossing into one long weekend.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>297 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>5h 25m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:65.6"><b>65.6<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
+<article class="an-road-finding-card an-reveal"><span class="an-road-finding-rank">4</span><div><span class="finding-tag">Weekend No. 2</span><h3>Mets → Phillies → Nationals Is the East Coast Weekend Pick</h3><p>Three NL East parks in three days on <strong>Jul 24–26, 2026</strong>, with less than four hours of total driving.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>213 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>3h 53m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:63.0"><b>63.0<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
 <article class="an-road-finding-card finding-worst an-reveal"><span class="an-road-finding-rank">5</span><div><span class="finding-tag">Bottom of the Table</span><h3>Athletics → Dodgers → Red Sox Is the Trip to Avoid</h3><p>The lowest-ranked route in all <strong>2,265 qualifying trips</strong> asks for a coast-to-coast slog in the same five-day window.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>2,954 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>53h 43m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:16.3"><b>16.3<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
 </div>
 </section>
@@ -3521,7 +3520,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <header class="roadtrip-hub-head"><div class="section-kicker">MLB road-trip study</div><h2 class="section-heading">Ranked: The Best Upcoming MLB Road Trips</h2><p class="section-copy">Compare the strongest three-ballpark itineraries left on the 2026 schedule, from tight Friday-to-Sunday routes to flexible trips with weekday stops, or pick your club for a top five built around your home ballpark.</p></header>
 <div class="trip-mode-tabs" role="tablist">
 <button aria-label="Weekend road trips, Friday through Sunday" aria-selected="true" class="trip-mode-tab active" data-tooltip="Friday through Sunday" id="weekendModeTab" role="tab" type="button"><strong>Weekend road trips</strong></button>
-<button aria-label="Flexible-schedule road trips, weekdays included" aria-selected="false" class="trip-mode-tab" data-tooltip="Weekdays included" id="flexibleModeTab" role="tab" type="button"><strong>Flexible-schedule road trips</strong></button>
+<button aria-label="All road trips, weekdays included" aria-selected="false" class="trip-mode-tab" data-tooltip="Every route, weekdays included" id="flexibleModeTab" role="tab" type="button"><strong>All road trips</strong></button>
 <button aria-label="Road trips ranked for your team's fans, starting at your home ballpark" aria-selected="false" class="trip-mode-tab" data-tooltip="Ranked from your home ballpark" id="fanModeTab" role="tab" type="button"><strong>Your team's road trips</strong></button>
 </div>
 <section class="trip-mode-panel weekend-panel" id="weekendTripsPanel" role="tabpanel">
@@ -3555,7 +3554,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <section class="trip-mode-panel" hidden="" id="flexibleTripsPanel" role="tabpanel">
 <main class="widget" id="roadTripWidget">
 <section aria-labelledby="flexibleContextHeading" class="selector-intro flexible-context-intro">
-<h2 class="section-heading" id="flexibleContextHeading">Flexible MLB Road Trips</h2>
+<h2 class="section-heading" id="flexibleContextHeading">All MLB Road Trips</h2>
 <p class="section-copy">Search every qualifying three-ballpark itinerary, including weekday games and travel. Select any row to view the route, dates, driving legs and score.</p>
 </section>
 <section aria-label="Selected road trip" aria-live="polite" class="featured-wrap">
@@ -3581,7 +3580,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 </div>
 </article>
 </section>
-<section aria-label="Flexible road trip filters" class="finder-controls">
+<section aria-label="Road trip filters" class="finder-controls">
 <section aria-label="Table filters" class="controls">
 <div class="control"><label for="search">Search by team or route</label><input autocomplete="off" class="field" id="search" placeholder="e.g. Yankees, Chicago or Baltimore" type="search"/></div>
 <div class="control"><label for="driveLimit">Maximum drive per leg</label><select class="field" id="driveLimit"><option value="99999">All road trips</option><option value="240">Under 4 hours</option><option value="300">Under 5 hours</option><option value="360">Under 6 hours</option><option value="480">Under 8 hours</option></select></div>
@@ -3675,7 +3674,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <div class="method-grid">
 <article class="method-card"><h3>1. Building the Trip Pool</h3><p>The official 2026 MLB home schedule was used to generate itineraries featuring three different teams at home on separate days within a three-to-five-day window. This produced <strong><span id="methodTripCount">2,265</span> qualifying trips</strong> beginning on or after July 11, 2026.</p></article>
 <article class="method-card"><h3>2. Weekend Trips</h3><p>The weekend view isolates Friday-to-Sunday routes only. Each route includes one game per day and is ranked separately so fans can quickly compare long-weekend options.</p></article>
-<article class="method-card"><h3>3. Flexible Trips</h3><p>The flexible view includes weekday games and travel, then lets readers filter by team, maximum drive per leg, trip length and sorting preference.</p></article>
+<article class="method-card"><h3>3. All Trips</h3><p>The all-trips view includes weekday games and travel, then lets you filter by team, maximum drive per leg, trip length and sorting preference.</p></article>
 <article class="method-card"><h3>4. Road Trip Score</h3><p>Each trip starts with the average venue score of its three stops, then applies drive-time adjustments between ballparks.</p><ul><li>Under 1 hour: <span class="method-adj adj-plus">20% bonus</span></li><li>1–2.5 hours: <span class="method-adj adj-zero">no adjustment</span></li><li>2.5–4 hours: <span class="method-adj adj-minus">15% penalty</span></li><li>Over 4 hours: <span class="method-adj adj-minus">50% penalty</span></li></ul></article>
 <article class="method-card method-card-full"><h3>Sources</h3><p>Game dates and home schedules: MLB.com. Route distances and drive times: driving-distance estimates between ballparks. Venue inputs: Action Network’s 2026 MLB venue dataset, including family game-day cost and surrounding fan-experience indicators.</p></article>
 </div>
@@ -5058,7 +5057,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
     if (!fanRows.length) {
       results.hidden = true;
       noneMsg.hidden = false;
-      noneMsg.textContent = 'No qualifying upcoming road trips start at ' + ballparkFor(selectedTeam) + ' for the rest of the 2026 season. Try the flexible-schedule tab to build a route that passes through instead.';
+      noneMsg.textContent = 'No qualifying upcoming road trips start at ' + ballparkFor(selectedTeam) + ' for the rest of the 2026 season. Try the all-trips tab to build a route that passes through instead.';
       selectedFanRow = null;
       return;
     }
@@ -5102,10 +5101,45 @@ body{font-family:'Source Serif 4',Georgia,serif;}
   if (!strip) return;
   const miles = strip.querySelector('.an-road-miles span');
   const milesBlock = strip.querySelector('.an-road-miles');
-  const milesTarget = miles ? Number(String(miles.textContent).replace(/[^0-9.]/g, '')) : NaN;
+  let milesTarget = miles ? Number(String(miles.textContent).replace(/[^0-9.]/g, '')) : NaN;
   const scoreCard = document.querySelector('.an-road-hero-deck .an-road-score-card') || document.querySelector('.an-road-score-card');
   const scoreNum = document.getElementById('anHeroScoreNum');
-  const scoreTarget = scoreNum ? Number(scoreNum.textContent) : NaN;
+  let scoreTarget = scoreNum ? Number(scoreNum.textContent) : NaN;
+
+  // The two headline trips the hero can narrate. Default is the study's
+  // overall No. 1; the toggle switches to the best Friday-to-Sunday run.
+  const HERO_TRIPS = {
+    overall: {
+      label: 'No. 1 Overall Route',
+      route: 'Milwaukee Brewers → Chicago Cubs → Chicago White Sox',
+      score: 72.2,
+      miles: 84,
+      stops: [
+        { name: 'Milwaukee', date: 'Mon, Jul 20' },
+        { name: 'Chicago Cubs', date: 'Tue, Jul 21' },
+        { name: 'White Sox', date: 'Fri, Jul 24' }
+      ],
+      legs: ['76 mi · 1h 23m', '8 mi · 9m']
+    },
+    weekend: {
+      label: 'No. 1 Weekend Route',
+      route: 'Cleveland Guardians → Detroit Tigers → Toronto Blue Jays',
+      score: 65.6,
+      miles: 297,
+      stops: [
+        { name: 'Cleveland', date: 'Fri, Aug 14' },
+        { name: 'Detroit', date: 'Sat, Aug 15' },
+        { name: 'Toronto', date: 'Sun, Aug 16' }
+      ],
+      legs: ['91 mi · 1h 40m', '206 mi · 3h 45m']
+    }
+  };
+  let heroKey = 'overall';
+  const cityNames = [...strip.querySelectorAll('.an-road-city-name')];
+  const cityDates = [...strip.querySelectorAll('.an-road-route-date')];
+  const legStats = [...strip.querySelectorAll('.an-road-leg-stat')];
+  const scoreLabel = document.getElementById('anHeroScoreLabel');
+  const routeLine = document.getElementById('anHeroRouteLine');
   const cities = [...strip.querySelectorAll('.an-road-route-city')];
   const arcs = [...strip.querySelectorAll('.an-road-arc')].map(arc => ({
     arc,
@@ -5131,8 +5165,8 @@ body{font-family:'Source Serif 4',Georgia,serif;}
     cities.forEach(city => city.classList.add('is-arrived'));
     arcs.forEach(entry => { entry.arc.classList.add('is-lit', 'is-done'); entry.arc.classList.remove('is-driving'); });
     if (milesBlock) milesBlock.classList.add('is-arrived');
-    countMiles('hero-miles-static');
-    revealScoreCard('hero-score-static');
+    countMiles('hero-miles-static-' + heroKey);
+    revealScoreCard('hero-score-static-' + heroKey);
   };
 
   const ensureCar = entry => {
@@ -5271,6 +5305,41 @@ body{font-family:'Source Serif 4',Georgia,serif;}
     stripVisible = true;
     activate();
   }
+
+  // Trip switcher: rewrite the strip and score card for the chosen headline
+  // trip, then replay the journey from the top.
+  const btnOverall = document.getElementById('anHeroTripOverall');
+  const btnWeekend = document.getElementById('anHeroTripWeekend');
+  const toggleTripButtons = key => {
+    [[btnOverall, 'overall'], [btnWeekend, 'weekend']].forEach(([btn, k]) => {
+      if (!btn) return;
+      btn.classList.toggle('secondary', k !== key);
+      btn.setAttribute('aria-pressed', String(k === key));
+    });
+  };
+  const applyHeroTripTexts = trip => {
+    cityNames.forEach((el, i) => { if (trip.stops[i]) el.textContent = trip.stops[i].name; });
+    cityDates.forEach((el, i) => { if (trip.stops[i]) el.textContent = trip.stops[i].date; });
+    legStats.forEach((el, i) => { if (trip.legs[i]) el.textContent = trip.legs[i]; });
+    if (scoreLabel) scoreLabel.textContent = trip.label;
+    if (routeLine) routeLine.textContent = trip.route;
+    milesTarget = trip.miles;
+    scoreTarget = trip.score;
+    if (miles) miles.textContent = String(trip.miles);
+    if (scoreNum) scoreNum.textContent = trip.score.toFixed(1);
+  };
+  const setHeroTrip = key => {
+    const trip = HERO_TRIPS[key];
+    if (!trip) return;
+    heroKey = key;
+    stopSeq();
+    finished = false;
+    applyHeroTripTexts(trip);
+    toggleTripButtons(key);
+    applyMode();
+  };
+  if (btnOverall) btnOverall.addEventListener('click', () => setHeroTrip('overall'));
+  if (btnWeekend) btnWeekend.addEventListener('click', () => setHeroTrip('weekend'));
 
   let resizeTimer = 0;
   window.addEventListener('resize', () => {
