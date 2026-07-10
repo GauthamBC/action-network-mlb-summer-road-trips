@@ -3318,6 +3318,15 @@ body{font-family:'Source Serif 4',Georgia,serif;}
   .an-road-hero-cta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin:0 clamp(20px,3vw,42px) clamp(16px,2vw,24px);}
   button.an-road-btn{appearance:none;-webkit-appearance:none;cursor:pointer;font-family:inherit;}
   @media(max-width:900px){.an-road-hero-deck{flex-direction:column}.an-road-hero-deck .an-road-score-card{flex:0 0 auto}}
+  /* Single sleek scrollbar: only the viewport scrolls. overflow-x on BOTH
+     html and body turns body into a second scroll container (the thick
+     default bar), so body uses clip, which cuts overflow without creating
+     a scroller, and html keeps the one slim styled bar. */
+  html{overflow-x:hidden;overflow-y:auto;}
+  body{overflow-x:clip !important;overflow-y:visible !important;}
+  .page-jump-menu-inner{scrollbar-width:none;-ms-overflow-style:none;}
+  .page-jump-menu-inner::-webkit-scrollbar{display:none;width:0;height:0;}
+
   /* Mid-desktop range: the strip shares its row with the score card, so
      scale type and gaps down to guarantee a fit regardless of font. */
   @media(min-width:901px) and (max-width:1550px){
@@ -3490,7 +3499,6 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <div class="page-jump-menu-inner">
 <span class="page-jump-label">Sections</span>
 <a class="page-jump-link is-current" data-section-link="key-findings" href="#key-findings">Key Findings</a>
-<a class="page-jump-link" data-section-link="road-trip-planner" href="#road-trip-planner">Road-Trip Tool</a>
 <a class="page-jump-link" data-trip-mode-link="weekend" href="#weekendTripsPanel">Weekend Trips</a>
 <a class="page-jump-link" data-trip-mode-link="flexible" href="#flexibleTripsPanel">All Trips</a>
 <a class="page-jump-link" data-trip-mode-link="fan" href="#fanTripsPanel">Your Team</a>
