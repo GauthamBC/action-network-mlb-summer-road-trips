@@ -3046,14 +3046,14 @@
 
   /* Route map: bigger pins; stop names and leg times in a legend strip below */
   .route-map-marker{width:32px !important;height:32px !important;font-size:14px !important;}
-  .route-map-legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding:13px 16px;background:#0b1218;border-top:1px solid rgba(255,255,255,.14);}
-  .rml-stop{display:inline-flex;align-items:center;gap:9px;color:#fff;font-family:var(--an-display);font-weight:800;font-size:16px;letter-spacing:.04em;text-transform:uppercase;line-height:1;}
-  .rml-num{font-style:normal;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.85);font-family:var(--an-display);font-size:13px;font-weight:900;color:#fff;background:#00b67a;}
+  .route-map-legend{display:flex;flex-wrap:nowrap;align-items:center;gap:.7em;padding:13px 16px;background:#0b1218;border-top:1px solid rgba(255,255,255,.14);font-size:16px;min-width:0;overflow:hidden;}
+  .rml-stop{display:inline-flex;align-items:center;gap:.55em;color:#fff;font-family:var(--an-display);font-weight:800;font-size:1em;letter-spacing:.04em;text-transform:uppercase;line-height:1;white-space:nowrap;min-width:0;}
+  .rml-num{font-style:normal;display:grid;place-items:center;width:2em;height:2em;border-radius:50%;border:2px solid rgba(255,255,255,.85);font-family:var(--an-display);font-size:.8em;font-weight:900;color:#fff;background:#00b67a;flex:none;}
   .rml-num.stop-2{background:#15cfd0;}
   .rml-num.stop-3{background:#0f7bb6;}
-  .rml-leg{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid rgba(0,224,154,.4);background:rgba(0,224,154,.1);color:#00e09a;font-family:var(--an-display);font-weight:700;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;line-height:1;}
-  .rml-leg::before{content:"\2192";margin-right:9px;color:rgba(255,255,255,.55);}
-  .rml-leg::after{content:"\2192";margin-left:9px;color:rgba(255,255,255,.55);}
+  .rml-leg{display:inline-flex;align-items:center;padding:.42em .8em;border:1px solid rgba(0,224,154,.4);background:rgba(0,224,154,.1);color:#00e09a;font-family:var(--an-display);font-weight:700;font-size:.85em;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;line-height:1;}
+  .rml-leg::before{content:"\2192";margin-right:.6em;color:rgba(255,255,255,.55);}
+  .rml-leg::after{content:"\2192";margin-left:.6em;color:rgba(255,255,255,.55);}
 
   /* City table headers: same tooltip affordance as the team table */
   #cityTableView .city-table th[data-tooltip]{outline:none;cursor:help;}
@@ -3216,7 +3216,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
   .featured-card,.weekend-featured{min-width:0 !important;grid-template-columns:1fr !important;min-height:0 !important;}
   .weekend-featured-wrap{overflow-x:visible;}
   .weekend-featured .route-stop{min-height:0 !important;}
-  .featured-side{border-left:0 !important;border-top:1px solid rgba(255,255,255,.11) !important;display:grid !important;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px;padding:14px 24px !important;}
+  .featured-side{border-left:0 !important;border-top:1px solid rgba(255,255,255,.11) !important;display:grid !important;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px;margin:0 24px 18px;padding:16px 20px !important;}
   .featured-side .score-ring{margin:0;width:140px;height:140px;}
   .featured-side .score-ring::before{inset:10px;}
   .featured-side .score-ring-content strong{font-size:36px;}
@@ -4164,6 +4164,25 @@ body{font-family:'Source Serif 4',Georgia,serif;}
         legend.className = 'route-map-legend';
         legend.innerHTML = stopChip(row.s1, 0) + legPill(row.min12, row.mi12) + stopChip(row.s2, 1) + legPill(row.min23, row.mi23) + stopChip(row.s3, 2);
         legendHost.appendChild(legend);
+        // Everything inside the legend is sized in em, so stepping the base
+        // font down squeezes long routes onto a single line.
+        const fitLegend = () => {
+          let size = 16;
+          legend.style.flexWrap = 'nowrap';
+          legend.style.fontSize = size + 'px';
+          while (size > 11 && legend.scrollWidth > legend.clientWidth + 1) {
+            size -= 0.5;
+            legend.style.fontSize = size + 'px';
+          }
+          // Extremely long routes on very narrow cards: wrap in two tidy
+          // lines at a readable size rather than clipping.
+          if (legend.scrollWidth > legend.clientWidth + 1) {
+            legend.style.flexWrap = 'wrap';
+            legend.style.fontSize = '13px';
+          }
+        };
+        fitLegend();
+        requestAnimationFrame(fitLegend);
       }
 
       const placeAnnotations = () => {
