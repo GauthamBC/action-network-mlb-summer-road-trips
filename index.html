@@ -3322,6 +3322,21 @@ body{font-family:'Source Serif 4',Georgia,serif;}
   .an-road-hero-cta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin:0 clamp(20px,3vw,42px) clamp(16px,2vw,24px);}
   button.an-road-btn{appearance:none;-webkit-appearance:none;cursor:pointer;font-family:inherit;}
   @media(max-width:900px){.an-road-hero-deck{flex-direction:column}.an-road-hero-deck .an-road-score-card{flex:0 0 auto}}
+  /* Readability: headings, card titles, tabs, buttons and nav links use
+     normal case. Small functional labels (kickers, stat labels, table
+     headers) keep their conventional caps. */
+  .section-heading,.landing-heading,.bp-hero h2,.featured-title,.results-title,
+  .key-finding-content h2,.method-card h3,.top-five-card h3,.top-five-inline-heading h3,
+  #best-ballparks .top-five-inline-heading h3,#city-ranking .top-five-inline-heading h3,
+  .roadtrip-methodology .method-card h3,
+  .an-road-section-head h2,.an-road-finding-card h3,.an-road-hero h1,
+  .roadtrip-hub-head .section-heading{text-transform:none !important;letter-spacing:.01em !important;}
+  .trip-mode-tab strong,
+  .btn,.small-btn,.page-btn,.bp-download-group button,.featured-download-btn,.an-road-btn,
+  .page-jump-label,.page-jump-link,.section-next-link,.section-menu-link,
+  .bp-tab,.fan-picker-label,.top-five-highlight strong{text-transform:none !important;letter-spacing:.05em !important;}
+  .an-road-hero-quote figcaption,.an-quote cite,.an-road-quote cite{text-transform:none !important;letter-spacing:.08em !important;}
+
   /* Single sleek scrollbar: only the viewport scrolls. overflow-x on BOTH
      html and body turns body into a second scroll container (the thick
      default bar), so body uses clip, which cuts overflow without creating
