@@ -3499,8 +3499,8 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <div class="page-jump-menu-inner">
 <span class="page-jump-label">Sections</span>
 <a class="page-jump-link is-current" data-section-link="key-findings" href="#key-findings">Key Findings</a>
-<a class="page-jump-link" data-trip-mode-link="weekend" href="#weekendTripsPanel">Weekend Trips</a>
 <a class="page-jump-link" data-trip-mode-link="flexible" href="#flexibleTripsPanel">All Trips</a>
+<a class="page-jump-link" data-trip-mode-link="weekend" href="#weekendTripsPanel">Weekend Trips</a>
 <a class="page-jump-link" data-trip-mode-link="fan" href="#fanTripsPanel">Your Team</a>
 <a class="page-jump-link" data-section-link="methodology" href="#methodology">Methodology</a>
 </div>
@@ -3527,11 +3527,11 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <section class="roadtrip-hub" id="road-trip-planner">
 <header class="roadtrip-hub-head"><div class="section-kicker">MLB road-trip study</div><h2 class="section-heading">Ranked: The Best Upcoming MLB Road Trips</h2><p class="section-copy">Compare the strongest three-ballpark itineraries left on the 2026 schedule, from tight Friday-to-Sunday routes to flexible trips with weekday stops, or pick your club for a top five built around your home ballpark.</p></header>
 <div class="trip-mode-tabs" role="tablist">
-<button aria-label="Weekend road trips, Friday through Sunday" aria-selected="true" class="trip-mode-tab active" data-tooltip="Friday through Sunday" id="weekendModeTab" role="tab" type="button"><strong>Weekend road trips</strong></button>
-<button aria-label="All road trips, weekdays included" aria-selected="false" class="trip-mode-tab" data-tooltip="Every route, weekdays included" id="flexibleModeTab" role="tab" type="button"><strong>All road trips</strong></button>
+<button aria-label="All road trips, weekdays included" aria-selected="true" class="trip-mode-tab active" data-tooltip="Every route, weekdays included" id="flexibleModeTab" role="tab" type="button"><strong>All road trips</strong></button>
+<button aria-label="Weekend road trips, Friday through Sunday" aria-selected="false" class="trip-mode-tab" data-tooltip="Friday through Sunday" id="weekendModeTab" role="tab" type="button"><strong>Weekend road trips</strong></button>
 <button aria-label="Road trips ranked for your team's fans, starting at your home ballpark" aria-selected="false" class="trip-mode-tab" data-tooltip="Ranked from your home ballpark" id="fanModeTab" role="tab" type="button"><strong>Your team's road trips</strong></button>
 </div>
-<section class="trip-mode-panel weekend-panel" id="weekendTripsPanel" role="tabpanel">
+<section class="trip-mode-panel weekend-panel" hidden="" id="weekendTripsPanel" role="tabpanel">
 <div class="weekend-banner"><h2 class="section-heading">Weekend MLB Road Trips</h2><p class="section-copy">The best Friday-to-Sunday routes still on the 2026 schedule. Each itinerary includes three teams at home on three separate days, then ranks the trip using venue quality and driving convenience.</p></div>
 <div class="weekend-featured-wrap">
 <article aria-live="polite" class="featured-card weekend-featured" id="weekendFeaturedCard">
@@ -3559,7 +3559,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <div class="weekend-table-wrap"><table class="weekend-table"><thead><tr><th>Rank</th><th>Road trip</th><th>Weekend</th><th>Total drive</th><th class="weekend-score-header" data-tooltip="Starts with the average score of the three ballparks, then adjusts for driving convenience between stops. Higher scores indicate a stronger overall trip." data-tooltip-title="Road Trip Score" tabindex="0">Road Trip Score</th></tr></thead><tbody id="weekendTableBody"></tbody></table></div>
 <p class="weekend-note">Showing the top 10 of 11 Friday-to-Sunday itineraries that met the study criteria. Driving times are estimates and do not account for traffic or border delays; the top-ranked Cleveland–Detroit–Toronto route includes a US–Canada border crossing.</p>
 </section>
-<section class="trip-mode-panel" hidden="" id="flexibleTripsPanel" role="tabpanel">
+<section class="trip-mode-panel" id="flexibleTripsPanel" role="tabpanel">
 <main class="widget" id="roadTripWidget">
 <section aria-labelledby="flexibleContextHeading" class="selector-intro flexible-context-intro">
 <h2 class="section-heading" id="flexibleContextHeading">All MLB Road Trips</h2>
@@ -4895,7 +4895,7 @@ body{font-family:'Source Serif 4',Georgia,serif;}
   const fanTab=document.getElementById('fanModeTab'), fanPanel=document.getElementById('fanTripsPanel');
   function switchMode(mode){
     const modes={weekend:{tab:weekendTab,panel:weekendPanel},flexible:{tab:flexibleTab,panel:flexiblePanel},fan:{tab:fanTab,panel:fanPanel}};
-    if(!modes[mode])mode='weekend';
+    if(!modes[mode])mode='flexible';
     Object.entries(modes).forEach(([key,ref])=>{
       if(!ref.tab||!ref.panel)return;
       const active=key===mode;
