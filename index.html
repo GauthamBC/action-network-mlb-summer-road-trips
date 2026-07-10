@@ -3315,6 +3315,10 @@ body{font-family:'Source Serif 4',Georgia,serif;}
   .an-road-score-card{transition:opacity .6s ease,transform .65s cubic-bezier(.22,.85,.35,1);}
   .an-road-score-card.an-road-score-wait{opacity:0;transform:translateY(16px) scale(.97);}
   .an-road-seq-snap .an-road-route-city,.an-road-seq-snap .an-road-arc svg path,.an-road-seq-snap .an-road-leg-stat,.an-road-seq-snap .an-road-miles,.an-road-score-card.an-road-seq-snap{transition:none !important;}
+  .an-road-hero-quote{position:relative;z-index:1;margin:4px 0 0;padding:6px 0 6px clamp(16px,2vw,24px);border-left:6px solid #00e09a;max-width:1080px;}
+  .an-road-hero-quote blockquote{margin:0;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:clamp(19px,2vw,28px);line-height:1.52;color:#eafff8;}
+  .an-road-hero-quote figcaption{margin-top:12px;font-family:'Barlow Condensed',system-ui,sans-serif;font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#00e09a;}
+  @media(max-width:560px){.an-road-hero-quote blockquote{font-size:17px;}}
   .an-road-hero-cta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin:0 clamp(20px,3vw,42px) clamp(16px,2vw,24px);}
   button.an-road-btn{appearance:none;-webkit-appearance:none;cursor:pointer;font-family:inherit;}
   @media(max-width:900px){.an-road-hero-deck{flex-direction:column}.an-road-hero-deck .an-road-score-card{flex:0 0 auto}}
@@ -3434,8 +3438,10 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <span>Action Network</span>
 </div>
 <p class="an-road-kicker">MLB Road-Trip Index</p>
-<h1>Ranked: The Best Upcoming MLB Road Trips</h1>
-<p class="an-road-sub">We scored 2,265 upcoming three-ballpark itineraries across the 2026 MLB schedule to find the strongest trips for fans who want multiple games, manageable driving and a clean route.</p>
+<figure class="an-road-hero-quote">
+<blockquote>“A great baseball road trip comes down to the schedule, not the odometer. Whether fans have five days or a single weekend, the 2026 calendar lines up: the best route packs three ballparks into just 84 miles of driving.”</blockquote>
+<figcaption>Action Network Spokesperson</figcaption>
+</figure>
 </div>
 </div>
 <div aria-label="Choose which top trip the animation shows" class="an-road-hero-cta" role="group">
@@ -3518,10 +3524,6 @@ body{font-family:'Source Serif 4',Georgia,serif;}
 <article class="an-road-finding-card an-reveal"><span class="an-road-finding-rank">4</span><div><span class="finding-tag">Weekend No. 2</span><h3>Mets → Phillies → Nationals Is the East Coast Weekend Pick</h3><p>Three NL East parks in three days on <strong>Jul 24–26, 2026</strong>, with less than four hours of total driving.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>213 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>3h 53m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:63.0"><b>63.0<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
 <article class="an-road-finding-card finding-worst an-reveal"><span class="an-road-finding-rank">5</span><div><span class="finding-tag">Bottom of the Table</span><h3>Athletics → Dodgers → Red Sox Is the Trip to Avoid</h3><p>The lowest-ranked route in all <strong>2,265 qualifying trips</strong> asks for a coast-to-coast slog in the same five-day window.</p><div class="finding-pills"><span class="an-road-finding-stat"><b>2,954 mi</b><small>Total drive</small></span><span class="an-road-finding-stat"><b>53h 43m</b><small>Drive time</small></span><span class="an-road-finding-stat has-meter" style="--score:16.3"><b>16.3<i>/100</i></b><span aria-hidden="true" class="stat-meter"><span class="stat-meter-fill"></span></span><small>Road Trip Score</small></span></div></div></article>
 </div>
-</section>
-<section class="an-road-quote an-reveal">
-<blockquote>“The best MLB road trip is not just the route with the biggest ballparks. It is the route where the games line up, the drives stay realistic, and fans can turn three separate home games into one clean itinerary.”</blockquote>
-<cite>Action Network Spokesperson</cite>
 </section>
 </div>
 <section class="roadtrip-hub" id="road-trip-planner">
