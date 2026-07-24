@@ -263,6 +263,29 @@ footer { color: #8ea0a6; background: var(--ink); }
 .footer-brand { color: #fff; }
 
 @media (max-width: 850px) {
+  .methodology { display: block; }
+  .method-copy { margin-top: 26px; }
+  .finder-header { grid-template-columns: 1fr; gap: 28px; }
+  .finder-list { display: grid; gap: 10px; padding: 10px; background: #eaf0f1; }
+  .finder-trip { min-width: 0; display: grid; grid-template-columns: 40px minmax(0,1fr) minmax(0,1fr) 88px; grid-template-rows: auto auto auto; gap: 7px 11px; padding: 13px; border: 1px solid var(--line); background: #fff; }
+  .finder-rank { grid-column: 1; grid-row: 1 / 4; }
+  .finder-route { grid-column: 2 / 4; grid-row: 1; }
+  .finder-trip-length { grid-column: 2; grid-row: 2; }
+  .finder-total { grid-column: 3; grid-row: 2; }
+  .finder-time { grid-column: 2; grid-row: 3; }
+  .finder-experience { grid-column: 3; grid-row: 3; }
+  .finder-score { grid-column: 4; grid-row: 1 / 4; align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+  .finder-experience { padding-left: 0; border-left: 0; }
+}
+
+@media (max-width: 900px) {
+  .route-line { grid-template-columns: 1fr 94px 1fr 94px 1fr; }
+  .route-stop strong { font-size: 17px; white-space: normal; }
+  .metric-strip > div { padding: 15px 18px; }
+  .hero-stats div { padding: 16px 18px; }
+}
+
+@media (max-width: 720px) {
   .hero-inner { grid-template-columns: 1fr; gap: 34px; padding: 48px 0 38px; }
   .hero-score { width: 190px; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
@@ -271,8 +294,6 @@ footer { color: #8ea0a6; background: var(--ink); }
   .featured-card { grid-template-columns: 1fr; }
   .featured-score-panel { border-top: 1px solid rgba(255,255,255,.11); border-left: 0; }
   .metric-strip { grid-template-columns: 1fr 1fr; }
-  .methodology { display: block; }
-  .method-copy { margin-top: 26px; }
   .table-wrap { overflow: visible; border: 0; background: transparent; box-shadow: none; }
   .table-wrap table, .table-wrap tbody { width: 100%; min-width: 0; display: block; }
   .table-wrap thead { display: none; }
@@ -294,17 +315,6 @@ footer { color: #8ea0a6; background: var(--ink); }
   .table-wrap td:nth-child(6)::before { content: "Ballpark Experience"; text-transform: uppercase; }
   .table-wrap tbody tr.selected td:first-child { box-shadow: none; }
   .table-wrap tbody tr.selected { border-left: 4px solid var(--green); background: #e0f7ee; }
-  .finder-header { grid-template-columns: 1fr; gap: 28px; }
-  .finder-list { display: grid; gap: 10px; padding: 10px; background: #eaf0f1; }
-  .finder-trip { min-width: 0; display: grid; grid-template-columns: 40px minmax(0,1fr) minmax(0,1fr) 88px; grid-template-rows: auto auto auto; gap: 7px 11px; padding: 13px; border: 1px solid var(--line); background: #fff; }
-  .finder-rank { grid-column: 1; grid-row: 1 / 4; }
-  .finder-route { grid-column: 2 / 4; grid-row: 1; }
-  .finder-trip-length { grid-column: 2; grid-row: 2; }
-  .finder-total { grid-column: 3; grid-row: 2; }
-  .finder-time { grid-column: 2; grid-row: 3; }
-  .finder-experience { grid-column: 3; grid-row: 3; }
-  .finder-score { grid-column: 4; grid-row: 1 / 4; align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
-  .finder-experience { padding-left: 0; border-left: 0; }
 }
 
 @media (max-width: 620px) {
